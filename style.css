@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.birthday-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #ff6b6b;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+.cake-animation {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cake {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    border-radius: 10px;
+    border: 3px solid #ff6b6b;
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+.cake::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    right: 10px;
+    height: 20px;
+    background: #fff;
+    border-radius: 10px;
+    border: 2px solid #ff6b6b;
+}
+
+@keyframes cakeFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.candle {
+    position: absolute;
+    width: 4px;
+    height: 25px;
+    background: #ffeb3b;
+    top: -35px;
+    border-radius: 2px;
+}
+
+.candle:nth-child(1) {
+    left: 30px;
+}
+
+.candle:nth-child(2) {
+    left: 50px;
+}
+
+.candle:nth-child(3) {
+    left: 70px;
+}
+
+.candle::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 8px;
+    background: radial-gradient(circle, #ff6b6b 0%, #ff9800 100%);
+    border-radius: 50%;
+    animation: flicker 1s ease-in-out infinite alternate;
+}
+
+@keyframes flicker {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.play-button, .stop-button {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    box-shadow: 0 8px 15px rgba(255, 107, 107, 0.3);
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.play-button:hover, .stop-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 20px rgba(255, 107, 107, 0.4);
+}
+
+.play-button:active, .stop-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(255, 107, 107, 0.3);
+}
+
+.stop-button {
+    background: linear-gradient(45deg, #ff5722, #ff7043);
+    box-shadow: 0 8px 15px rgba(255, 87, 34, 0.3);
+}
+
+.stop-button:hover {
+    box-shadow: 0 12px 20px rgba(255, 87, 34, 0.4);
+}
+
+.lyrics {
+    margin-top: 30px;
+    font-size: 1.3rem;
+    color: #333;
+    font-weight: bold;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.lyrics.singing {
+    animation: pulse 0.5s ease-in-out infinite alternate;
+    color: #ff6b6b;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .birthday-card {
+        padding: 30px 20px;
+    }
+    
+    .play-button, .stop-button {
+        font-size: 1rem;
+        padding: 12px 25px;
+    }
+}
